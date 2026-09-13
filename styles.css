@@ -1,0 +1,23 @@
+html {
+    background-color: white;
+}
+
+body {
+    background-color: antiquewhite;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.videolink {
+    display: block;
+    margin: 0 auto;
+}
+
+.titletext {color: darkorange}
+
+h1 { display: flex; justify-content: center; }
+h2 { display: flex; justify-content: center; }
+
+.aboutme {
+    display: flex; align-items: center;
+}
