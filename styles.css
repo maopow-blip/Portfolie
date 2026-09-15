@@ -9,16 +9,43 @@ body {
     margin: 0 auto;
 }
 
-.videolink {
-    display: block;
-    margin: 0 auto;
+.titletext {
+    color: darkorange;
 }
 
-.titletext {color: darkorange}
+nav {
+    display: flex;
+    justify-content: space-between;
+}
 
-h1 { display: flex; justify-content: center; }
-h2 { display: flex; justify-content: center; }
+
+img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    width: 300px;
+    margin-bottom: 50px;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+h2 {
+    display: flex;
+    justify-content: center;
+}
+
 
 .aboutme {
-    display: flex; align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-bottom: 80px;
+}
+
+
+.aboutme {
+    display: flex;
+    align-items: center;
 }
