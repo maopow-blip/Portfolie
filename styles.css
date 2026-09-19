@@ -1,15 +1,18 @@
 html {
-    background-color: sandybrown;
+    background-color: white;
+    scroll-behavior: smooth;
 }
 
 body {
     font-family: 'Ubuntu', sans-serif;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-    background-color: wheat;
+    background-color: #333333;
+    color: #f7f7f7;
     max-width: 1000px;
     margin: 0 auto;
     min-height: 100vh;
     padding: 1px 0;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
 }
 
 header {
@@ -17,26 +20,33 @@ header {
     flex-direction: column;
 }
 
-.toprow {
+
+.player {
     position: fixed;
-    left: 0;
     top: 20px;
+    right: 20px;
+    width: 320px;
+    z-index: 10;
 }
 
+
 .player p {
-    display: flex;
-    justify-content: space-around;
+    color: #333333;
+    font-size: 18px;
+    font-weight: bold;
+
 }
-iframe {
+
+.player iframe {
     display: block;
-    margin: 0 auto;
+    width: 100%;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     border-radius: 6px;
 }
 
 
 .titletext {
-    color: darkorange;
+    color: #f7f7f7;
 }
 
 .sidenav {
@@ -44,6 +54,25 @@ iframe {
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
+position: fixed;
+    left: 20px;
+    top: 20px;
+}
+
+.sidenav a {
+    color: #333333;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-left: 3px solid transparent;
+    transition: border-color 0.2s, color 0.2s;
+    font-size: 18px;
+    font-weight: bold;
+
+}
+
+.sidenav a:hover {
+    color: #e95420;
+    border-left-color: #e95420;
 }
 
 img {
@@ -58,36 +87,78 @@ img {
 h1 {
     display: flex;
     justify-content: center;
+    color: #f7f7f7;
+    font-weight: bold;
+
 }
 
 h2 {
     display: flex;
     justify-content: center;
+    color: #f7f7f7;
+    font-weight: bold;
 }
 
+
+main section {
+    margin-bottom: 120px;
+    padding: 0 40px;
+    scroll-margin-top: 100px;
+}
 
 .aboutme {
     max-width: 600px;
     margin: 0 auto;
-    margin-bottom: 80px;
-    display: flex;
-    align-items: center;
+    font-size: 20px;
 }
 
-.cv {
-    margin-bottom: 80px;
+.aboutme + .aboutme {
+    margin-top: 20px;
+}
+
+#cv li {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+#cv h2 {
+    margin-bottom: 40px;
+}
+
+h3 {
+    text-align: center;
+    margin-bottom: 40px;
 }
 
 
 #contact {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    margin-bottom: 80px;
+    margin: 60px 40px 40px;
+    padding: 30px 40px;
+    background-color: #444444;
+    border-radius: 8px;
+
+
 }
 
 #contact p {
     margin: 0;
 
 }
+
+#contact a {
+    color: #f7f7f7;
+    text-decoration: none;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+#contact a:hover {
+    border-bottom-color: #e95420;
+}
+
+
 
