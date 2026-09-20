@@ -49,4 +49,26 @@ picroll.addEventListener('wheel', (event) => {
     step(delta > 0 ? 1 : -1);
 }, { passive: false });
 
+let touchStartX = 0;
+let touchStartY = 0;
+
+picroll.addEventListener('touchstart', (event) => {
+    touchStartX = event.touches[0].clientX;
+    touchStartY = event.touches[0].clientY;
+}, { passive: true });
+
+picroll.addEventListener('touchend', (event) => {
+    const touch = event.changedTouches[0];
+    const dx = touch.clientX - touchStartX;
+    const dy = touch.clientY - touchStartY;
+    if (Math.abs(dx) < 40 && Math.abs(dy) < 40) {
+        return;
+    }
+    if (Math.abs(dy) > Math.abs(dx)) {
+        step(dy < 0 ? 1 : -1);
+    } else {
+        step(dx < 0 ? 1 : -1);
+    }
+}, { passive: true });
+
 arrange();
