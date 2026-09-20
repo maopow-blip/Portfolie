@@ -1,24 +1,23 @@
-html {
-    background-color: floralwhite;
-    scroll-behavior: smooth;
-}
-
 :root {
-    --column-width: 1000px;
+    --content-width: 1000px;
     --corner-inset: 20px;
     --player-width: 320px;
 }
 
-body {
-    font-family: 'Ubuntu', sans-serif;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+html {
     background-color: #333333;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    font-family: 'Questrial', sans-serif;
     color: #f7f7f7;
-    max-width: var(--column-width);
-    margin: 0 auto;
+    background-color: #333333;
+    margin: 0;
     min-height: 100vh;
-    padding: 1px 0;
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
 }
 
 header {
@@ -28,15 +27,13 @@ header {
 
 .titletext {
     font-weight: bold;
-    text-shadow: 0 0 2px #e95420;
+    margin-bottom: 60px;
 }
-
 
 .player {
     width: 100%;
     margin: 0 0 30px;
 }
-
 
 .player p {
     color: #f7f7f7;
@@ -49,12 +46,6 @@ header {
     width: 100%;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     border-radius: 6px;
-}
-
-
-.titletext {
-    color: #f7f7f7;
-    margin-bottom: 40px;
 }
 
 .sidenav {
@@ -73,7 +64,6 @@ header {
     transition: border-color 0.2s, color 0.2s;
     font-size: 18px;
     font-weight: bold;
-
 }
 
 .sidenav a:hover {
@@ -90,22 +80,49 @@ img {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
+.picroll {
+    position: relative;
+    width: 700px;
+    max-width: 100%;
+    height: 380px;
+    margin: 0 auto;
+    padding: 10px 0 20px;
+    overflow: hidden;
+}
+
+.picroll img {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    margin-left: -130px;
+    width: 260px;
+    height: 340px;
+    object-fit: cover;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+    border-radius: 6px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+h1, h2, h3 {
+    color: #ffa31b;
+    font-weight: bold;
+}
+
 h1 {
     display: flex;
     justify-content: center;
-    color: #f7f7f7;
-    font-weight: bold;
-
 }
 
 h2 {
     display: flex;
     justify-content: center;
-    color: #f7f7f7;
-    font-weight: bold;
     margin-bottom: 40px;
 }
 
+main {
+    max-width: var(--content-width);
+    margin: 0 auto;
+}
 
 main section {
     margin-bottom: 150px;
@@ -133,26 +150,26 @@ main section {
 }
 
 h3 {
+    color: #d97f00;
     text-align: center;
     margin-bottom: 40px;
 }
 
-
 #contact {
+    max-width: var(--content-width);
     display: flex;
     flex-direction: column;
     gap: 15px;
     align-items: center;
-    margin: 180px 20px 40px;
+    margin: 180px auto 40px;
     padding: 30px 20px;
     background-color: #444444;
     border-radius: 8px;
+    box-sizing: border-box;
 }
-
 
 #contact p {
     margin: 0;
-
 }
 
 #contact a {
@@ -167,33 +184,24 @@ h3 {
     border-bottom-color: #e95420;
 }
 
-
 @media screen and (min-width: 1700px) {
     .player {
         position: fixed;
-        top: 20px;
-        left: calc(50vw + var(--column-width) / 2 + var(--corner-inset));
+        top: var(--corner-inset);
+        right: var(--corner-inset);
         width: var(--player-width);
         margin: 0;
         z-index: 10;
     }
 
-    .player p {
-        color: #333333;
-    }
-
     .sidenav {
         position: fixed;
-        top: 20px;
-        right: calc(50vw + var(--column-width) / 2 + var(--corner-inset));
+        top: var(--corner-inset);
+        left: var(--corner-inset);
         flex-direction: column;
         justify-content: space-between;
         align-items: flex-start;
         margin-bottom: 0;
-    }
-
-    .sidenav a {
-        color: #333333;
     }
 
     main section {
@@ -205,10 +213,6 @@ h3 {
         justify-content: space-around;
         align-items: center;
         gap: 0;
-        margin: 60px 40px 40px;
         padding: 30px 40px;
     }
 }
-
-
-
