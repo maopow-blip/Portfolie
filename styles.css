@@ -1,6 +1,12 @@
 html {
-    background-color: white;
+    background-color: floralwhite;
     scroll-behavior: smooth;
+}
+
+:root {
+    --column-width: 1000px;
+    --corner-inset: 20px;
+    --player-width: 320px;
 }
 
 body {
@@ -8,7 +14,7 @@ body {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
     background-color: #333333;
     color: #f7f7f7;
-    max-width: 1000px;
+    max-width: var(--column-width);
     margin: 0 auto;
     min-height: 100vh;
     padding: 1px 0;
@@ -20,21 +26,22 @@ header {
     flex-direction: column;
 }
 
+.titletext {
+    font-weight: bold;
+    text-shadow: 0 0 2px #e95420;
+}
+
 
 .player {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 320px;
-    z-index: 10;
+    width: 100%;
+    margin: 0 0 30px;
 }
 
 
 .player p {
-    color: #333333;
+    color: #f7f7f7;
     font-size: 18px;
     font-weight: bold;
-
 }
 
 .player iframe {
@@ -47,20 +54,19 @@ header {
 
 .titletext {
     color: #f7f7f7;
+    margin-bottom: 40px;
 }
 
 .sidenav {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-direction: row;
+    justify-content: center;
     align-items: flex-start;
-position: fixed;
-    left: 20px;
-    top: 20px;
+    margin-bottom: 30px;
 }
 
 .sidenav a {
-    color: #333333;
+    color: #f7f7f7;
     text-decoration: none;
     padding: 8px 12px;
     border-left: 3px solid transparent;
@@ -97,12 +103,13 @@ h2 {
     justify-content: center;
     color: #f7f7f7;
     font-weight: bold;
+    margin-bottom: 40px;
 }
 
 
 main section {
-    margin-bottom: 120px;
-    padding: 0 40px;
+    margin-bottom: 150px;
+    padding: 0 20px;
     scroll-margin-top: 100px;
 }
 
@@ -133,15 +140,15 @@ h3 {
 
 #contact {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    gap: 15px;
     align-items: center;
-    margin: 60px 40px 40px;
-    padding: 30px 40px;
+    margin: 180px 20px 40px;
+    padding: 30px 20px;
     background-color: #444444;
     border-radius: 8px;
-
-
 }
+
 
 #contact p {
     margin: 0;
@@ -158,6 +165,49 @@ h3 {
 
 #contact a:hover {
     border-bottom-color: #e95420;
+}
+
+
+@media screen and (min-width: 1700px) {
+    .player {
+        position: fixed;
+        top: 20px;
+        left: calc(50vw + var(--column-width) / 2 + var(--corner-inset));
+        width: var(--player-width);
+        margin: 0;
+        z-index: 10;
+    }
+
+    .player p {
+        color: #333333;
+    }
+
+    .sidenav {
+        position: fixed;
+        top: 20px;
+        right: calc(50vw + var(--column-width) / 2 + var(--corner-inset));
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 0;
+    }
+
+    .sidenav a {
+        color: #333333;
+    }
+
+    main section {
+        padding: 0 40px;
+    }
+
+    #contact {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        gap: 0;
+        margin: 60px 40px 40px;
+        padding: 30px 40px;
+    }
 }
 
 
