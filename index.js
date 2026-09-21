@@ -1,4 +1,4 @@
-const picroll = document.querySelector('.picroll');
+const picroll = document.querySelector('.pic-roll');
 const images = [...picroll.querySelectorAll('img')];
 const count = images.length;
 let frontIndex = 0;
@@ -20,15 +20,15 @@ function arrange() {
         const abs = Math.abs(d);
 
         if (abs === 0) {
-            image.style.transform = 'translate(0, 0) rotate(0deg) scale(1)';
+            image.style.transform = 'translate(0, 0) scale(1)';
             image.style.opacity = '1';
             image.style.zIndex = count;
         } else if (abs <= 2) {
-            image.style.transform = `translate(${d * 120}px, 0) rotate(${d * 8}deg) scale(${1 - abs * 0.15})`;
-            image.style.opacity = String(1 - abs * 0.15);
+            image.style.transform = `translate(${d * 120}px, 0) scale(${1 - abs * 0.15})`;
+            image.style.opacity = '1';
             image.style.zIndex = count - abs;
         } else {
-            image.style.transform = 'translate(0, 0) rotate(0deg) scale(0.6)';
+            image.style.transform = 'translate(0, 0) scale(0.6)';
             image.style.opacity = '0';
             image.style.zIndex = count - abs;
         }
@@ -40,12 +40,20 @@ function step(direction) {
     arrange();
 }
 
+const STEP_COOLDOWN_MS = 200;
+let lastStepTime = 0;
+
 picroll.addEventListener('wheel', (event) => {
     const delta = event.deltaX !== 0 ? event.deltaX : event.deltaY;
     if (delta === 0) {
         return;
     }
     event.preventDefault();
+    const now = Date.now();
+    if (now - lastStepTime < STEP_COOLDOWN_MS) {
+        return;
+    }
+    lastStepTime = now;
     step(delta > 0 ? 1 : -1);
 }, { passive: false });
 
